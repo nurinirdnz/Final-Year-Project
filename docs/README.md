@@ -1,5 +1,7 @@
 # AI-Based Real-Time Classification and Prioritisation of Fire Hotspots for Transboundary Haze Risk in Sarawak
 
+![Views](https://komarev.com/ghpvc/?username=nurinirdnz-Final-Year-Project&label=Views&color=blue)
+
 This project helps Sarawak's environment and disaster agencies see which fire hotspots, in Sarawak and neighbouring Kalimantan, are most likely to cause haze, so they can warn the public before the smoke arrives.
 
 ## 1. Introduction
@@ -55,9 +57,9 @@ This project addresses a gap in current hotspot monitoring: hotspots are detecte
 
 ## Documents
 
-- [Problem statement](docs/problem-statement.md)
-- [Requirements](docs/requirements.md)
-- [User stories](docs/user-stories.md)
+- [Problem statement](problem-statement.md)
+- [Requirements](requirements.md)
+- [User stories](user-stories.md)
 
 ## Author
 
