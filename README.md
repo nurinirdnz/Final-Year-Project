@@ -34,13 +34,13 @@ Hundreds of fire hotspots are detected daily across Sarawak and Kalimantan, but 
 
 ## 6. Project Scope
 
-| Aspect | In scope |
-| ------ | -------- |
-| Area | Hotspots in Sarawak and in West and Central Kalimantan. Haze prediction at two to three Sarawak monitoring stations. |
-| Data | Satellite hotspots (Himawari-9 and NASA VIIRS), wind data, and Department of Environment API readings from past haze seasons. |
-| Techniques | Machine learning for classification and prediction, and a rule-based risk score for ranking. |
-| Output | A web dashboard with a hotspot map, a next-day haze forecast and a ranked hotspot list. |
-| Users | Environment and disaster agencies, and fire and rescue teams. |
+| Aspect     | In scope                                                                                                                      |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Area       | Hotspots in Sarawak and in West and Central Kalimantan. Haze prediction at two to three Sarawak monitoring stations.          |
+| Data       | Satellite hotspots (Himawari-9 and NASA VIIRS), wind data, and Department of Environment API readings from past haze seasons. |
+| Techniques | Machine learning for classification and prediction, and a rule-based risk score for ranking.                                  |
+| Output     | A web dashboard with a hotspot map, a next-day haze forecast and a ranked hotspot list.                                       |
+| Users      | Environment and disaster agencies, and fire and rescue teams.                                                                 |
 
 **Not included:** detecting fires from raw satellite images, firefighting operations, regions outside Sarawak and Kalimantan, and a validated ranking of individual fires.
 
@@ -59,19 +59,19 @@ This project addresses a gap in current hotspot monitoring: hotspots are detecte
 
 The tools below are planned for the project and may change as development progresses.
 
-| Area | Technology | Purpose |
-| ---- | ---------- | ------- |
-| Programming language | Python | Data processing, model training and the dashboard |
-| Data handling | pandas, NumPy | Cleaning and joining hotspot, wind and air quality data |
-| Machine learning | scikit-learn, XGBoost | Hotspot classification and next-day haze prediction |
-| Dashboard | Streamlit | Web dashboard showing the map, forecast and ranked list |
-| Map | Folium (Leaflet) | Interactive hotspot map inside the dashboard |
-| Scheduling | Python scheduler (for example, APScheduler) | Fetching new satellite data automatically every 10 minutes |
-| Live hotspot data | Himawari-9 wildfire product (JAXA P-Tree) | Fire detections every 10 minutes |
-| Confirmation and training data | NASA FIRMS (VIIRS 375 m) | Detailed fire detections and training labels |
-| Wind data | ERA5 reanalysis (Copernicus); weather forecast feed for live use | Wind speed and direction |
-| Air quality data | Department of Environment Malaysia (APIMS) | API readings used to train and test the predictor |
-| Version control and planning | Git, GitHub, GitHub Codespaces, GitHub Projects | Code history, pull requests, issues and sprint board |
+| Area                           | Technology                                                       | Purpose                                                    |
+| ------------------------------ | ---------------------------------------------------------------- | ---------------------------------------------------------- |
+| Programming language           | Python                                                           | Data processing, model training and the dashboard          |
+| Data handling                  | pandas, NumPy                                                    | Cleaning and joining hotspot, wind and air quality data    |
+| Machine learning               | scikit-learn, XGBoost                                            | Hotspot classification and next-day haze prediction        |
+| Dashboard                      | Streamlit                                                        | Web dashboard showing the map, forecast and ranked list    |
+| Map                            | Folium (Leaflet)                                                 | Interactive hotspot map inside the dashboard               |
+| Scheduling                     | Python scheduler (for example, APScheduler)                      | Fetching new satellite data automatically every 10 minutes |
+| Live hotspot data              | Himawari-9 wildfire product (JAXA P-Tree)                        | Fire detections every 10 minutes                           |
+| Confirmation and training data | NASA FIRMS (VIIRS 375 m)                                         | Detailed fire detections and training labels               |
+| Wind data                      | ERA5 reanalysis (Copernicus); weather forecast feed for live use | Wind speed and direction                                   |
+| Air quality data               | Department of Environment Malaysia (APIMS)                       | API readings used to train and test the predictor          |
+| Version control and planning   | Git, GitHub, GitHub Codespaces, GitHub Projects                  | Code history, pull requests, issues and sprint board       |
 
 ## Documents
 
@@ -84,17 +84,15 @@ The tools below are planned for the project and may change as development progre
 
 ```text
 .
-├── README.md                  Project overview
-├── LICENSE                    Project licence or rights notice
-├── .gitignore                 Files Git must not track
-├── docs/
-│   ├── README.md              Document index
-│   ├── problem-statement.md   Who is affected, what is wrong, why it matters
-│   ├── requirements.md        Functional and non-functional requirements
-│   ├── user-stories.md        User stories with acceptance criteria
-│   └── sprint-log.md          Sprint goal, standups, review and retrospective
-└── src/
-    └── README.md              Source code placeholder
+|-- README.md                  Project overview
+|-- .gitignore                 Files Git must not track
+|-- docs/
+|   |-- problem-statement.md   Project problem and supporting evidence
+|   |-- requirements.md        Functional and non-functional requirements
+|   |-- user-stories.md        User stories with acceptance criteria
+|   `-- sprint-log.md          Sprint goal, standups, review and retrospective
+`-- src/
+    `-- README.md              Source code placeholder
 ```
 
 ## Roadmap
