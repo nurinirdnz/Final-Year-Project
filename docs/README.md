@@ -24,23 +24,23 @@ Hundreds of fire hotspots are detected daily across Sarawak and Kalimantan, but 
 
 1. How can machine learning classify satellite fire hotspots as persistent fires or short-lived detections, and predict next-day haze at Sarawak monitoring stations?
 2. How accurately do the models perform on data not used for training, using the August–September 2026 haze episode, and does using only persistent hotspots predict haze better than using all hotspots?
-3. Can the models be deployed in a dashboard that ranks hotspots by haze risk and updates within 5 minutes of new satellite data?
+3. Can the models be deployed in a dashboard that ranks hotspots by haze risk and updates within 5 minutes of new satellite data arriving at the system?
 
 ## 5. Project Objectives
 
 1. To develop a hotspot classification model (persistent fire or short-lived detection) and a next-day haze prediction model using machine learning, trained on archived satellite hotspot, wind and Department of Environment API data from past Sarawak haze seasons, by Week 19.
 2. To evaluate both models on data not used for training, using the August–September 2026 haze episode, targeting an F1-score of at least 0.80 for classification and a recall of at least 0.75 for predicting unhealthy days (API above 100), and to compare prediction using persistent hotspots against using all hotspots, by Week 23.
-3. To deploy both models in a dashboard that ranks hotspots by haze risk to Sarawak and updates automatically within 5 minutes of each new satellite data release, by Week 26.
+3. To deploy both models in a dashboard that ranks hotspots by haze risk to Sarawak and updates automatically within 5 minutes of new satellite data arriving at the system after retrieval, by Week 26.
 
 ## 6. Project Scope
 
-| Aspect     | In scope                                                                                                                      |
-| ---------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| Area       | Hotspots in Sarawak and in West and Central Kalimantan. Haze prediction at two to three Sarawak monitoring stations.          |
-| Data       | Satellite hotspots (Himawari-9 and NASA VIIRS), wind data, and Department of Environment API readings from past haze seasons. |
-| Techniques | Machine learning for classification and prediction, and a rule-based risk score for ranking.                                  |
-| Output     | A web dashboard with a hotspot map, a next-day haze forecast and a ranked hotspot list.                                       |
-| Users      | Environment and disaster agencies, and fire and rescue teams.                                                                 |
+| Aspect | In scope |
+| ------ | -------- |
+| Area | Hotspots in Sarawak and in West and Central Kalimantan. Haze prediction at two to three Sarawak monitoring stations. |
+| Data | Satellite hotspots (Himawari-9 and NASA VIIRS), wind data, and Department of Environment API readings from past haze seasons. |
+| Techniques | Machine learning for classification and prediction, and a rule-based risk score for ranking. |
+| Output | A web dashboard with a hotspot map, a next-day haze forecast and a ranked hotspot list. |
+| Users | Environment and disaster agencies, and fire and rescue teams. |
 
 **Not included:** detecting fires from raw satellite images, firefighting operations, regions outside Sarawak and Kalimantan, and a validated ranking of individual fires.
 
@@ -55,11 +55,61 @@ Hundreds of fire hotspots are detected daily across Sarawak and Kalimantan, but 
 
 This project addresses a gap in current hotspot monitoring: hotspots are detected, but they are not classified or linked to haze risk in Sarawak. It sets out three project questions and three objectives: to develop the models, to evaluate them, and to deploy them in a near real-time dashboard. Its scope is limited to Sarawak and the neighbouring part of Kalimantan, and its main value is giving agencies earlier warning of which fires matter.
 
+## Technology Used
+
+The tools below are planned for the project and may change as development progresses.
+
+| Area | Technology | Purpose |
+| ---- | ---------- | ------- |
+| Programming language | Python | Data processing, model training and the dashboard |
+| Data handling | pandas, NumPy | Cleaning and joining hotspot, wind and air quality data |
+| Machine learning | scikit-learn, XGBoost | Hotspot classification and next-day haze prediction |
+| Dashboard | Streamlit | Web dashboard showing the map, forecast and ranked list |
+| Map | Folium (Leaflet) | Interactive hotspot map inside the dashboard |
+| Scheduling | Python scheduler (for example, APScheduler) | Fetching new satellite data automatically every 10 minutes |
+| Live hotspot data | Himawari-9 wildfire product (JAXA P-Tree) | Fire detections every 10 minutes |
+| Confirmation and training data | NASA FIRMS (VIIRS 375 m) | Detailed fire detections and training labels |
+| Wind data | ERA5 reanalysis (Copernicus); weather forecast feed for live use | Wind speed and direction |
+| Air quality data | Department of Environment Malaysia (APIMS) | API readings used to train and test the predictor |
+| Version control and planning | Git, GitHub, GitHub Codespaces, GitHub Projects | Code history, pull requests, issues and sprint board |
+
 ## Documents
 
-- [Problem statement](problem-statement.md)
-- [Requirements](requirements.md)
-- [User stories](user-stories.md)
+- [Problem statement](docs/problem-statement.md)
+- [Requirements](docs/requirements.md)
+- [User stories](docs/user-stories.md)
+- [Sprint log](docs/sprint-log.md)
+
+## Project structure
+
+```text
+.
+├── README.md                  Project overview
+├── LICENSE                    Project licence or rights notice
+├── .gitignore                 Files Git must not track
+├── docs/
+│   ├── README.md              Document index
+│   ├── problem-statement.md   Who is affected, what is wrong, why it matters
+│   ├── requirements.md        Functional and non-functional requirements
+│   ├── user-stories.md        User stories with acceptance criteria
+│   └── sprint-log.md          Sprint goal, standups, review and retrospective
+└── src/
+    └── README.md              Source code placeholder
+```
+
+## Roadmap
+
+- [x] Week 2: Draft the problem statement, requirements and user stories
+- [ ] Week 3: Complete Sprint 1 — acceptance criteria, numbered requirements, project structure and roadmap
+- [ ] Week 3: Complete three merged pull requests, close the issues and move the board cards to Done
+- [ ] Week 3: Complete the partner review and sprint retrospective
+- [ ] Review and verify evidence supporting the problem statement
+- [ ] Choose the specialised technology and list 3 credible sources
+- [ ] Outline the technology explanation
+- [ ] Week 4: Submit Assignment 1
+- [ ] By Week 19: Develop the hotspot classification and haze prediction models
+- [ ] By Week 23: Evaluate both models on the August–September 2026 haze episode
+- [ ] By Week 26: Deploy the models in a near real-time dashboard
 
 ## Author
 
