@@ -22,7 +22,7 @@ Format: As a [type of user], I want [goal], so that [reason or benefit].
      - Hotspots are listed from the highest to the lowest risk score.
      - Each hotspot in the list shows its class, fire strength, distance to Sarawak and wind direction.
 
-5. As a dashboard user, I want the dashboard to update by itself, so that I always see the latest situation.
+5. As a dashboard user, I want the dashboard to update by itself so that I always see the latest situation.
    - Acceptance criteria:
      - New satellite data appears on the dashboard within 5 minutes of its release, with no manual refresh.
      - The last-updated time changes after every update.
