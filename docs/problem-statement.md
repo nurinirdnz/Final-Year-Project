@@ -14,7 +14,7 @@ In August 2026, one Sarawak station reached an Air Pollutant Index (API) of 475,
 
 ## Problem statement (3 to 5 sentences)
 
-Hundreds of fire hotspots are detected daily across Sarawak and Kalimantan, but each appears as an identical point on a map (Malay Mail, 2026). Agencies have no automated way to separate lasting fires from brief detections, or to link them to Sarawak's air quality. As a result, haze is confirmed only after it arrives, as in August 2026 when one station reached API 475 (Lu, 2026). This leaves little time to warn the public and direct the response, putting people's health at risk.
+Hundreds of fire hotspots are detected daily across Sarawak and Kalimantan but each appears as an identical point on a map (Malay Mail, 2026). Agencies have no automated way to separate lasting fires from brief detections, or to link them to Sarawak's air quality. As a result, haze is confirmed only after it arrives, as in August 2026 when one station reached API 475 (Lu, 2026). This leaves little time to warn the public and direct the response, putting people's health at risk.
 
 ## References
 
