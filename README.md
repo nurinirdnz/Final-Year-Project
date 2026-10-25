@@ -2,47 +2,54 @@
 
 ![Views](https://komarev.com/ghpvc/?username=nurinirdnz-Final-Year-Project&label=Views&color=blue)
 
-This project helps Sarawak's environment and disaster agencies see which fire hotspots, in Sarawak and neighbouring Kalimantan, are most likely to cause haze, so they can warn the public before the smoke arrives.
+This project helps Sarawak's environment and disaster agencies, fire and rescue teams, and the public see which fire hotspots, in Sarawak and neighbouring Kalimantan, are most likely to cause haze, so they can be warned before the smoke arrives. It is delivered as a mobile app.
 
 ## 1. Introduction
 
-Transboundary haze is a recurring environmental and health problem in Sarawak, caused mainly by land and peat fires in neighbouring Kalimantan. Satellites already detect these fires as hotspots, but they report every hotspot the same way, with no indication of which ones threaten Sarawak's air. This project develops a near real-time AI system that classifies fire hotspots, predicts next-day haze in Sarawak, and ranks hotspots by their transboundary haze risk, so that agencies can act before the smoke arrives.
+Transboundary haze is a recurring environmental and health problem in Sarawak, caused mainly by land and peat fires in neighbouring Kalimantan. Satellites already detect these fires as hotspots, but they report every hotspot the same way, with no indication of which ones threaten Sarawak's air. This project develops a mobile app that processes satellite hotspot data in near real time. The app classifies hotspots as persistent fires or short-lived detections, predicts whether next-day air quality (API) will exceed 100 at selected Sarawak stations, and ranks hotspots by their transboundary haze risk, so that agencies and the public can act before the smoke arrives.
 
 ## 2. Background of Study
 
 - **Haze in Sarawak:** In late August 2026, Sarawak recorded its worst air quality since 2019. One station reached an Air Pollutant Index (API) of 475, close to the level of 500 at which an emergency declaration is considered (Lu, 2026).
-- **Where the smoke comes from:** On 30 August 2026, 1,180 hotspots were detected in Kalimantan in a single day (Malay Mail, 2026). In 2019, Sarawak's Department of Environment linked Sri Aman's air quality to wind direction and Kalimantan hotspots (Bernama, 2019).
+- **Where the smoke comes from:** On 30 August 2026, the Department of Environment reported 1,211 hotspots across southern ASEAN, mostly in Kalimantan (Malay Mail, 2026). In 2019, Sarawak's Department of Environment linked Sri Aman's air quality to wind direction and Kalimantan hotspots (Bernama, 2019).
 - **Health impact:** The 2015 haze was estimated to have caused about 100,300 excess deaths across Indonesia, Malaysia and Singapore (Koplitz et al., 2016).
-- **How fires are monitored:** NASA's VIIRS satellites detect fires at 375 m detail, published within about 3 hours of each satellite pass (Davies et al., 2024). Japan's Himawari-9 satellite scans the region every 10 minutes, with infrared detail of 1 to 2 km (Japan Meteorological Agency, n.d.).
+- **How fires are monitored:** NASA's VIIRS satellites detect fires at 375 m detail, published within about 3 hours of each satellite pass (Davies et al., 2024). Japan's Himawari-8/9 satellites scan the region every 10 minutes, with infrared detail of 1 to 2 km (Japan Meteorological Agency, n.d.).
 - **AI in this field:** Machine learning has been used to predict peatland fire occurrence (Rosadi et al., 2020), predict fire activity in Southeast Asia (Eaturu & Vadrevu, 2025) and estimate air quality in Malaysia (Zaman et al., 2021), but these have not been combined for Sarawak.
 
 ## 3. Problem Statement
 
-Hundreds of fire hotspots are detected daily across Sarawak and Kalimantan, but each appears as an identical point on a map (Malay Mail, 2026). Agencies have no automated way to separate lasting fires from brief detections, or to link them to Sarawak's air quality. As a result, haze is confirmed only after it arrives, as in August 2026 when one station reached API 475 (Lu, 2026). This leaves little time to warn the public and direct the response, putting people's health at risk.
+Satellites can tell agencies where fires are burning, but not which fires matter to Sarawak. Three problems get in the way:
 
-## 4. Project Questions
+1. **Every hotspot looks the same.** More than a thousand hotspots can appear across the region on a bad day (Malay Mail, 2026), each as an identical point on a map. Many are brief detections rather than lasting fires, and no automated method separates them.
+2. **Existing forecasts do not use hotspot data.** The next-day forecasts reviewed rely on pollutant and weather readings only, and none ranks hotspots.
+3. **Haze is confirmed only after it arrives,** as in August 2026 when one station reached API 475 (Lu, 2026). This leaves little time to warn the public and direct the response, putting people's health at risk.
 
-1. How can machine learning classify satellite fire hotspots as persistent fires or short-lived detections, and predict next-day haze at Sarawak monitoring stations?
-2. How accurately do the models perform on data not used for training, using the August–September 2026 haze episode, and does using only persistent hotspots predict haze better than using all hotspots?
-3. Can the models be deployed in a dashboard that ranks hotspots by haze risk and updates within 5 minutes of new satellite data arriving at the system?
+## 4. Research Questions
+
+1. Which machine learning model is best at classifying hotspots as persistent fires or short-lived detections and at predicting next-day haze in Sarawak?
+2. How can the identified model be used in a mobile app with a dashboard that ranks hotspots by haze risk?
+3. How well does the app work for its users, according to user testing with a questionnaire?
+
+_(Draft, to be confirmed with the supervisor.)_
 
 ## 5. Project Objectives
 
-1. To develop a hotspot classification model (persistent fire or short-lived detection) and a next-day haze prediction model using machine learning, trained on archived satellite hotspot, wind and Department of Environment API data from past Sarawak haze seasons, by Week 19.
-2. To evaluate both models on data not used for training, using the August–September 2026 haze episode, targeting an F1-score of at least 0.80 for classification and a recall of at least 0.75 for predicting unhealthy days (API above 100), and to compare prediction using persistent hotspots against using all hotspots, by Week 23.
-3. To deploy both models in a dashboard that ranks hotspots by haze risk to Sarawak and updates automatically within 5 minutes of new satellite data arriving at the system after retrieval, by Week 26.
+1. To identify the best machine learning model for classifying hotspots and predicting next-day haze.
+2. To develop a mobile app with a dashboard that uses the identified model to rank hotspots by haze risk.
+3. To evaluate the app through user testing with a questionnaire.
 
 ## 6. Project Scope
 
-| Aspect     | In scope                                                                                                                      |
-| ---------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| Area       | Hotspots in Sarawak and in West and Central Kalimantan. Haze prediction at two to three Sarawak monitoring stations.          |
-| Data       | Satellite hotspots (Himawari-9 and NASA VIIRS), wind data, and Department of Environment API readings from past haze seasons. |
-| Techniques | Machine learning for classification and prediction, and a rule-based risk score for ranking.                                  |
-| Output     | A web dashboard with a hotspot map, a next-day haze forecast and a ranked hotspot list.                                       |
-| Users      | Environment and disaster agencies, and fire and rescue teams.                                                                 |
+| Aspect     | In scope                                                                                                                                                                                   |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Area       | Hotspots in Sarawak and in West and Central Kalimantan. Haze prediction at two to three Sarawak monitoring stations.                                                                       |
+| Data       | Satellite hotspots (Himawari-8/9 and NASA VIIRS), wind data, and Department of Environment API readings from past haze seasons.                                                            |
+| Techniques | Candidate machine learning models (for example random forest and XGBoost) compared on data not used for training (August–September 2026 episode), and a rule-based risk score for ranking. |
+| Output     | A mobile app (Android and iPhone) with a dashboard: hotspot map, next-day haze forecast, ranked hotspot list, and GPS to show hotspots near the user.                                      |
+| Timing     | Near real time: each update within 5 minutes of new satellite data; the data itself is delayed by about 10 minutes (Himawari-8/9) to 3 hours (VIIRS).                                      |
+| Users      | Environment and disaster agencies, fire and rescue teams, and the public, including schools and families.                                                                                  |
 
-**Not included:** detecting fires from raw satellite images, firefighting operations, regions outside Sarawak and Kalimantan, and a validated ranking of individual fires.
+**Not included:** detecting fires from raw satellite images, firefighting operations, regions outside Sarawak and Kalimantan, each fire's exact share of the haze, and a validated ranking of individual fires.
 
 ## 7. Significance of Study
 
@@ -53,29 +60,31 @@ Hundreds of fire hotspots are detected daily across Sarawak and Kalimantan, but 
 
 ## 8. Conclusion
 
-This project addresses a gap in current hotspot monitoring: hotspots are detected, but they are not classified or linked to haze risk in Sarawak. It sets out three project questions and three objectives: to develop the models, to evaluate them, and to deploy them in a near real-time dashboard. Its scope is limited to Sarawak and the neighbouring part of Kalimantan, and its main value is giving agencies earlier warning of which fires matter.
+This project addresses a gap in current hotspot monitoring: hotspots are detected, but they are not classified or linked to haze risk in Sarawak. It sets out three research questions and three objectives: to identify the best model, to develop a mobile app that uses it, and to evaluate the app with users. Its scope is limited to Sarawak and the neighbouring part of Kalimantan, and its main value is giving agencies and the public earlier warning of which fires matter.
 
 ## Technology Used
 
 The tools below are planned for the project and may change as development progresses.
 
-| Area                           | Technology                                                       | Purpose                                                    |
-| ------------------------------ | ---------------------------------------------------------------- | ---------------------------------------------------------- |
-| Programming language           | Python                                                           | Data processing, model training and the dashboard          |
-| Data handling                  | pandas, NumPy                                                    | Cleaning and joining hotspot, wind and air quality data    |
-| Machine learning               | scikit-learn, XGBoost                                            | Hotspot classification and next-day haze prediction        |
-| Dashboard                      | Streamlit                                                        | Web dashboard showing the map, forecast and ranked list    |
-| Map                            | Folium (Leaflet)                                                 | Interactive hotspot map inside the dashboard               |
-| Scheduling                     | Python scheduler (for example, APScheduler)                      | Fetching new satellite data automatically every 10 minutes |
-| Live hotspot data              | Himawari-9 wildfire product (JAXA P-Tree)                        | Fire detections every 10 minutes                           |
-| Confirmation and training data | NASA FIRMS (VIIRS 375 m)                                         | Detailed fire detections and training labels               |
-| Wind data                      | ERA5 reanalysis (Copernicus); weather forecast feed for live use | Wind speed and direction                                   |
-| Air quality data               | Department of Environment Malaysia (APIMS)                       | API readings used to train and test the predictor          |
-| Version control and planning   | Git, GitHub, GitHub Codespaces, GitHub Projects                  | Code history, pull requests, issues and sprint board       |
+| Area                           | Technology                                                       | Purpose                                                                                 |
+| ------------------------------ | ---------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| Programming language           | Python, TypeScript                                               | Data processing and model training (Python); mobile app (TypeScript)                    |
+| Data handling                  | pandas, NumPy                                                    | Cleaning and joining hotspot, wind and air quality data                                 |
+| Machine learning               | scikit-learn, XGBoost, MLflow                                    | Comparing models, hotspot classification and next-day haze prediction, tracking results |
+| Back end                       | FastAPI, Docker                                                  | Serving the chosen model to the app                                                     |
+| Database and cache             | PostgreSQL/PostGIS, Redis                                        | Storing hotspots and caching results                                                    |
+| Mobile app                     | React Native with Expo                                           | Mobile app for Android and iPhone                                                       |
+| Map and location               | MapLibre React Native, expo-location                             | Interactive hotspot map and GPS                                                         |
+| Scheduling                     | Python scheduler (for example, APScheduler)                      | Fetching new satellite data automatically                                               |
+| Live hotspot data              | Himawari-8/9 wildfire product (JAXA P-Tree)                      | Fire detections every 10 minutes                                                        |
+| Confirmation and training data | NASA FIRMS (VIIRS 375 m)                                         | Detailed fire detections and training labels                                            |
+| Wind data                      | ERA5 reanalysis (Copernicus); weather forecast feed for live use | Wind speed and direction                                                                |
+| Air quality data               | Department of Environment Malaysia (APIMS)                       | API readings used to train and test the predictor                                       |
+| Version control and planning   | Git, GitHub, GitHub Actions, GitHub Projects                     | Code history, tests, issues and sprint board                                            |
 
 ## Documents
 
-- [Problem statement](docs/problem-statement.md)
+- [Problem statement, research questions, objectives and scope](docs/problem-statement.md)
 - [Requirements](docs/requirements.md)
 - [User stories](docs/user-stories.md)
 - [Sprint log](docs/sprint-log.md)
@@ -87,7 +96,7 @@ The tools below are planned for the project and may change as development progre
 |-- README.md                  Project overview
 |-- .gitignore                 Files Git must not track
 |-- docs/
-|   |-- problem-statement.md   Project problem and supporting evidence
+|   |-- problem-statement.md   Problem, research questions, objectives, scope and evidence
 |   |-- requirements.md        Functional and non-functional requirements
 |   |-- user-stories.md        User stories with acceptance criteria
 |   `-- sprint-log.md          Sprint goal, standups, review and retrospective
@@ -101,17 +110,17 @@ The tools below are planned for the project and may change as development progre
 - [ ] Week 3: Complete Sprint 1 — acceptance criteria, numbered requirements, project structure and roadmap
 - [ ] Week 3: Complete three merged pull requests, close the issues and move the board cards to Done
 - [ ] Week 3: Complete the partner review and sprint retrospective
-- [ ] Review and verify evidence supporting the problem statement
-- [ ] Choose the specialised technology and list 3 credible sources
-- [ ] Outline the technology explanation
+- [x] Review and verify evidence supporting the problem statement
+- [x] Choose the specialised technology (machine learning) and list credible sources
+- [x] Outline the technology explanation
 - [ ] Week 4: Submit Assignment 1
-- [ ] By Week 19: Develop the hotspot classification and haze prediction models
-- [ ] By Week 23: Evaluate both models on the August–September 2026 haze episode
-- [ ] By Week 26: Deploy the models in a near real-time dashboard
+- [ ] By Week 19: Compare candidate models (random forest, XGBoost) and identify the best one
+- [ ] By Week 23: Develop the mobile app and dashboard that use the chosen model
+- [ ] By Week 26: Evaluate the app through user testing with a questionnaire
 
 ## Author
 
-Nurin Irdina Safiah binti Arif Sarjana (for Final Year Project)
+Nurin Irdina Safiah binti Arif Sarjana (for Final Year Project). Supervisor: Ts. Dr. Razulaimi bin Razali.
 
 ## References
 
